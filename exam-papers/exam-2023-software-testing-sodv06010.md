@@ -18,6 +18,8 @@ There are no additional requirements for this paper.
 
 Do you think that all bugs can be removed by software testing? Explain your answer and give your understanding of the goal of software testing in your explanation.
 
+No software is bug-free, but the goal of software testing is to find as many bugs as possible.
+
 ### Question 1 Part 2 (11 Marks)
 
 Do you think scenarios and use cases can be used for black box testing? Explain your answer?

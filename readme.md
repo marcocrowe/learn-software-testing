@@ -25,10 +25,7 @@ Source code @ <https://github.com/b333vv/metricstree/tree/master>
 - [Software Testing Metrics](https://www.math.unipd.it/~tullio/IS-1/2004/Approfondimenti/Software_Testing_Metrics.html "Software Testing Metrics")
 - [What is LCSAJ Testing?](https://www.educative.io/answers/what-is-lcsaj-testing "What is LCSAJ Testing?")
 - [Control-flow graph](https://en.wikipedia.org/wiki/Control-flow_graph "Control-flow graph")
-- [Control Flow Graph (CFG) – Software Engineering
-](https://www.geeksforgeeks.org/software-engineering-control-flow-graph-cfg/ "Control Flow Graph (CFG) – Software Engineering")
-- [Example of Control Flow Graph](https://www.researchgate.net/figure/Example-of-Control-Flow-Graph_fig5_4065402)
-  - ![Example of Control Flow Graph](images/readme/example-of-control-flow-graph.png)
+- [Control Flow Graph (CFG) – Software Engineering](https://www.geeksforgeeks.org/software-engineering-control-flow-graph-cfg/ "Control Flow Graph (CFG) – Software Engineering")
 - [Cognitive Complexity and Its Effect on the Code](https://www.baeldung.com/java-cognitive-complexity "Cognitive Complexity and Its Effect on the Code")
 - [Linear code sequence and jump](https://en.wikipedia.org/wiki/Linear_code_sequence_and_jump "Linear code sequence and jump")
 
