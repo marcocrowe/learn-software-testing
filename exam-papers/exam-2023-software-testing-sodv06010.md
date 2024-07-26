@@ -2,7 +2,7 @@
 
 **Time Allowed**: 2 hours
 
-**Instructions**:  Answer any 3 questions. All questions carry equal
+**Instructions**:  Answer any 3 questions. All questions carry equal marks
 
 **Marks and marks will be scaled to 100.**
 
@@ -140,7 +140,7 @@ Derive the equivalence classes and determine black box test cases based on these
 
 ## Paper College Details
 
-College: Technological University Of The Shannon: Midlands Midwest  
+College: Technological University of the Shannon: Midlands Midwest  
 Module Title: Software Testing  
 Module Code: SODV06010  
 Year of Study: 2  

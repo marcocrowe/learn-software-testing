@@ -3,7 +3,7 @@
 
 **Time Allowed**: 2 hours
 
-**Instructions**:  Answer any 3 questions. All questions carry equal
+**Instructions**:  Answer any 3 questions. All questions carry equal marks
 
 **Marks and marks will be scaled to 100.**
 

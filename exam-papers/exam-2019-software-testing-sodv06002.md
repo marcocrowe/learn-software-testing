@@ -1,7 +1,7 @@
 ﻿
 # Software Testing - Exam Paper - 2022 - Summer
 
-**Instructions**:  Answer any 3 questions. All questions carry equal
+**Instructions**:  Answer any 3 questions. All questions carry equal marks
 
 The use of programmable or text storing calculators is expressly forbidden.
 
