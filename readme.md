@@ -13,6 +13,12 @@
 - 2020 Summer SODV06002 **Missing due to Lockdown**
 - [2019 Summer SODV06002](exam-papers/exam-2019-software-testing-sodv06002.md "2019 Summer SODV06002")
 
+## Exam Papers
+
+| Programme        | Year | Code      | Paper                                                         | Solution                                                            |
+|------------------|------|-----------|---------------------------------------------------------------|---------------------------------------------------------------------|
+| Software Testing | 2023 | SODV06010 | [Paper](exam-papers/2024-software-testing-sodv06001-paper.md) | [Solution](exam-papers/2024-software-testing-sodv06001-solution.md) |
+
 ## Tools
 
 [MetricsTree](https://plugins.jetbrains.com/plugin/13959-metricstree "MetricsTree") is a plugin for IntelliJ IDEA that calculates software metrics for Java code.
