@@ -232,6 +232,7 @@ While BVA primarily focuses on boundary values, it can also be useful to conside
 
 - **Negative Values:** Testing with negative values (e.g., -1) can help ensure that the application correctly handles invalid inputs.
 - **Even/Odd Values:** Testing with even and odd values within the valid range (e.g., 2, 3, 98, 99) can help identify any issues related to specific types of inputs.
+- **Non-Integer Values:** Testing with non-integer values (e.g., 1.5) can help verify the application's handling of non-integer inputs.
 
 By focusing on these boundary values and additional considerations, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
 
@@ -241,3 +242,97 @@ A shopping website offers different discounts depending upon each transaction
 made by the customer. The user enters the integer value of the purchase amount in Euro, then presses the Enter button. For example if a purchase amount is in the range €1 to €10 then no discount is displayed, a purchase over €10 and up to €300 have 10% discount calculated and displayed. Purchase amounts between €301 and up to €500 have 15% discount calculated and displayed, and purchases over €500 have a 20% discount calculated and displayed. The maximum purchase amount that can be entered is €1000 and the minimum amount is €1 and invalid input of any kind results in the warning message Invalid Input.
 
 Derive the equivalence classes and determine black box test cases based on these and utilise boundary value analysis.
+
+### Equivalence Classes
+
+1. **Valid Input:**
+   - Class 1: €1 to €10 (No discount)
+   - Class 2: €11 to €300 (10% discount)
+   - Class 3: €301 to €500 (15% discount)
+   - Class 4: €501 to €1000 (20% discount)
+
+2. **Invalid Input:**
+   - Class 5: Less than €1
+   - Class 6: Greater than €1000
+   - Class 7: Non-integer values (e.g., strings, special characters)
+
+### Boundary Value Analysis
+
+For each equivalence class, we will identify the boundary values and create test cases accordingly.
+
+#### Test Cases
+
+1. **Class 1: €1 to €10 (No discount)**
+   - Lower boundary: €1
+   - Just above the lower boundary: €2
+   - Upper boundary: €10
+   - Just below the upper boundary: €9
+
+2. **Class 2: €11 to €300 (10% discount)**
+   - Lower boundary: €11
+   - Just above the lower boundary: €12
+   - Upper boundary: €300
+   - Just below the upper boundary: €299
+
+3. **Class 3: €301 to €500 (15% discount)**
+   - Lower boundary: €301
+   - Just above the lower boundary: €302
+   - Upper boundary: €500
+   - Just below the upper boundary: €499
+
+4. **Class 4: €501 to €1000 (20% discount)**
+   - Lower boundary: €501
+   - Just above the lower boundary: €502
+   - Upper boundary: €1000
+   - Just below the upper boundary: €999
+
+5. **Class 5: Less than €1 (Invalid Input)**
+   - Just below the lower boundary: €0
+   - Negative value: -€1
+
+6. **Class 6: Greater than €1000 (Invalid Input)**
+   - Just above the upper boundary: €1001
+
+7. **Class 7: Non-integer values (Invalid Input)**
+   - String input: "abc"
+   - Special character input: "@#$"
+
+### Equivalence Classes
+
+| Equiv classes | Criteria           | Valid/Invalid |
+|---------------|--------------------|---------------|
+| E1            | €1 to €10          | Valid         |
+| E2            | €11 to €300        | Valid         |
+| E3            | €301 to €500       | Valid         |
+| E4            | €501 to €1000      | Valid         |
+| E5            | Less than €1       | Invalid       |
+| E6            | Greater than €1000 | Invalid       |
+| E7            | Non-integer values | Invalid       |
+
+### Black Box Test Cases
+
+| Test case | Input | Output        | Equivalence class covered |
+|-----------|------:|---------------|---------------------------|
+| TC1       |    €1 | No discount   | E1                        |
+| TC2       |    €2 | No discount   | E1                        |
+| TC3       |   €10 | No discount   | E1                        |
+| TC4       |    €9 | No discount   | E1                        |
+| TC5       |   €11 | 10% discount  | E2                        |
+| TC6       |   €12 | 10% discount  | E2                        |
+| TC7       |  €300 | 10% discount  | E2                        |
+| TC8       |  €299 | 10% discount  | E2                        |
+| TC9       |  €301 | 15% discount  | E3                        |
+| TC10      |  €302 | 15% discount  | E3                        |
+| TC11      |  €500 | 15% discount  | E3                        |
+| TC12      |  €499 | 15% discount  | E3                        |
+| TC13      |  €501 | 20% discount  | E4                        |
+| TC14      |  €502 | 20% discount  | E4                        |
+| TC15      | €1000 | 20% discount  | E4                        |
+| TC16      |  €999 | 20% discount  | E4                        |
+| TC17      |    €0 | Invalid Input | E5                        |
+| TC18      |   -€1 | Invalid Input | E5                        |
+| TC19      | €1001 | Invalid Input | E6                        |
+| TC20      | "abc" | Invalid Input | E7                        |
+| TC21      | "@#$" | Invalid Input | E7                        |
+
+By focusing on these boundary values and equivalence classes, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
