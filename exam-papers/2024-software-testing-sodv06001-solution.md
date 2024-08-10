@@ -243,56 +243,49 @@ made by the customer. The user enters the integer value of the purchase amount i
 
 Derive the equivalence classes and determine black box test cases based on these and utilise boundary value analysis.
 
-### Equivalence Classes
+### Answer 4.B
 
 1. **Valid Input:**
    - Class 1: €1 to €10 (No discount)
    - Class 2: €11 to €300 (10% discount)
    - Class 3: €301 to €500 (15% discount)
    - Class 4: €501 to €1000 (20% discount)
-
 2. **Invalid Input:**
    - Class 5: Less than €1
    - Class 6: Greater than €1000
    - Class 7: Non-integer values (e.g., strings, special characters)
 
-### Boundary Value Analysis
+**Boundary Value Analysis**  
 
 For each equivalence class, we will identify the boundary values and create test cases accordingly.
 
-#### Test Cases
+**Test Cases**  
 
 1. **Class 1: €1 to €10 (No discount)**
    - Lower boundary: €1
    - Just above the lower boundary: €2
    - Upper boundary: €10
    - Just below the upper boundary: €9
-
 2. **Class 2: €11 to €300 (10% discount)**
    - Lower boundary: €11
    - Just above the lower boundary: €12
    - Upper boundary: €300
    - Just below the upper boundary: €299
-
 3. **Class 3: €301 to €500 (15% discount)**
    - Lower boundary: €301
    - Just above the lower boundary: €302
    - Upper boundary: €500
    - Just below the upper boundary: €499
-
 4. **Class 4: €501 to €1000 (20% discount)**
    - Lower boundary: €501
    - Just above the lower boundary: €502
    - Upper boundary: €1000
    - Just below the upper boundary: €999
-
 5. **Class 5: Less than €1 (Invalid Input)**
    - Just below the lower boundary: €0
    - Negative value: -€1
-
 6. **Class 6: Greater than €1000 (Invalid Input)**
    - Just above the upper boundary: €1001
-
 7. **Class 7: Non-integer values (Invalid Input)**
    - String input: "abc"
    - Special character input: "@#$"
