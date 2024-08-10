@@ -297,7 +297,7 @@ For each equivalence class, we will identify the boundary values and create test
    - String input: "abc"
    - Special character input: "@#$"
 
-### Equivalence Classes
+**Equivalence Classes:**  
 
 | Equiv classes | Criteria           | Valid/Invalid |
 |---------------|--------------------|---------------|
@@ -309,30 +309,33 @@ For each equivalence class, we will identify the boundary values and create test
 | E6            | Greater than €1000 | Invalid       |
 | E7            | Non-integer values | Invalid       |
 
-### Black Box Test Cases
+**Black Box Test Cases:**  
 
-| Test case | Input | Output        | Equivalence class covered |
-|-----------|------:|---------------|---------------------------|
-| TC1       |    €1 | No discount   | E1                        |
-| TC2       |    €2 | No discount   | E1                        |
-| TC3       |   €10 | No discount   | E1                        |
-| TC4       |    €9 | No discount   | E1                        |
-| TC5       |   €11 | 10% discount  | E2                        |
-| TC6       |   €12 | 10% discount  | E2                        |
-| TC7       |  €300 | 10% discount  | E2                        |
-| TC8       |  €299 | 10% discount  | E2                        |
-| TC9       |  €301 | 15% discount  | E3                        |
-| TC10      |  €302 | 15% discount  | E3                        |
-| TC11      |  €500 | 15% discount  | E3                        |
-| TC12      |  €499 | 15% discount  | E3                        |
-| TC13      |  €501 | 20% discount  | E4                        |
-| TC14      |  €502 | 20% discount  | E4                        |
-| TC15      | €1000 | 20% discount  | E4                        |
-| TC16      |  €999 | 20% discount  | E4                        |
-| TC17      |    €0 | Invalid Input | E5                        |
-| TC18      |   -€1 | Invalid Input | E5                        |
-| TC19      | €1001 | Invalid Input | E6                        |
-| TC20      | "abc" | Invalid Input | E7                        |
-| TC21      | "@#$" | Invalid Input | E7                        |
+| Test case |   Input | Output        | Equivalence class covered |
+|-----------|--------:|---------------|---------------------------|
+| TC1       |      €1 | No discount   | E1                        |
+| TC2       |      €2 | No discount   | E1                        |
+| TC3       |     €10 | No discount   | E1                        |
+| TC4       |      €9 | No discount   | E1                        |
+| TC5       |     €11 | 10% discount  | E2                        |
+| TC6       |     €12 | 10% discount  | E2                        |
+| TC7       |    €300 | 10% discount  | E2                        |
+| TC8       |    €299 | 10% discount  | E2                        |
+| TC9       |    €301 | 15% discount  | E3                        |
+| TC10      |    €302 | 15% discount  | E3                        |
+| TC11      |    €500 | 15% discount  | E3                        |
+| TC12      |    €499 | 15% discount  | E3                        |
+| TC13      |    €501 | 20% discount  | E4                        |
+| TC14      |    €502 | 20% discount  | E4                        |
+| TC15      |   €1000 | 20% discount  | E4                        |
+| TC16      |    €999 | 20% discount  | E4                        |
+| TC17      |      €0 | Invalid Input | E5                        |
+| TC18      |     -€1 | Invalid Input | E5                        |
+| TC19      |   €1001 | Invalid Input | E6                        |
+| TC20      |   "abc" | Invalid Input | E7                        |
+| TC21      |   "@#$" | Invalid Input | E7                        |
+| TC22      |    €1.5 | No discount?  | E1                        |
+| TC23      |  €1.525 | No discount?  | E1                        |
+| TC24      | €500.50 | 20% discount? | E4                        |
 
 By focusing on these boundary values and equivalence classes, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
