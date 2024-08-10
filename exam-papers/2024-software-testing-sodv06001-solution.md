@@ -167,16 +167,77 @@ Develop the block table for the code shown in Figure 1.
 
 Using my **Lines** table from **Answer 2.B**:
 
-| Block Number | Start Line | End Line | Start Line Code              | End Line Code    |   |
-|--------------|------------|----------|------------------------------|------------------|---|
-| 1            | 1          | 2        | `initialise();`              | `turn("Right");` |   |
-| 2            | 3          | 8        | `for(int i=1; i <= 10; i++)` | `break;`         | Note 1  |
-| 3            | 9          | 10       | `return pieCount;`           | **END**          |   |
-|              |            |          |                              |                  |   |
-| 4            | 5          | 5        | `eatPie(aGrid);`             | `eatPie(aGrid);` | Note 2  |
-| 5            | 7          | 7        | `walk(aGrid);`               | `walk(aGrid);`   | Note 2  |
+| Block Number | Start Line | End Line | Start Line Code              | End Line Code    |        |
+|--------------|------------|----------|------------------------------|------------------|--------|
+| 1            | 1          | 2        | `initialise();`              | `turn("Right");` |        |
+| 2            | 3          | 8        | `for(int i=1; i <= 10; i++)` | `break;`         | Note 1 |
+| 3            | 9          | 10       | `return pieCount;`           | **END**          |        |
+|              |            |          |                              |                  |        |
+| 4            | 5          | 5        | `eatPie(aGrid);`             | `eatPie(aGrid);` | Note 2 |
+| 5            | 7          | 7        | `walk(aGrid);`               | `walk(aGrid);`   | Note 2 |
 
 **Notes**:
 
 1. The `break;` statement makes it impossible to break up the code into smaller blocks because the `break;` statement is part of the loop.
 2. Stricter interpretation of the block table would have the same start and end line code for blocks 4 and 5, but It would be pointless to block to call the same function.
+
+## Question 3 - (Total 33 Marks)
+
+# Missing
+
+## Question 4
+
+### Question 4.A (10 Marks)
+
+Explain why consideration of Boundary Value Analysis is useful when determining tests cases for the Equivalence Classes/Partitions you identify. Use a simple example to illustrate your answer.
+
+### Answer 4.A
+
+Boundary Value Analysis (BVA) is a crucial technique in software testing that focuses on the values at the boundaries of equivalence classes or partitions. This method is particularly useful because defects are more likely to occur at the edges of input ranges rather than in the middle. By testing these boundary values, we can more effectively identify potential issues in the software.
+
+BVA aligns with the principles of functional testing and structural testing. Functional testing checks the system's functionality from the user's perspective, while structural testing ensures that every part of the code is executed. BVA helps achieve these goals by ensuring that boundary conditions, which are critical for both functional correctness and structural integrity, are thoroughly tested.
+
+**Why BVA is Useful:**
+
+1. **Error Detection:** Boundary values are more prone to errors. Testing these values helps in detecting defects that might not be found when testing within the middle of the range.
+2. **Efficiency:** It reduces the number of test cases needed while still maintaining a high probability of finding defects.
+3. **Coverage:** Ensures that all edge cases are tested, providing better coverage of the input domain.
+
+**Example:**
+Consider a software application that accepts an integer input between 1 and 100 (inclusive).
+
+- **Equivalence Classes:**
+  - Valid input: 1 to 100
+  - Invalid input: less than 1, greater than 100
+
+- **Boundary Values:**
+  - Lower boundary: 1
+  - Just below the lower boundary: 0
+  - Just above the lower boundary: 2
+  - Upper boundary: 100
+  - Just below the upper boundary: 99
+  - Just above the upper boundary: 101
+
+**Test Cases:**
+
+1. Test with the value 1 (lower boundary).
+2. Test with the value 0 (just below the lower boundary).
+3. Test with the value 2 (just above the lower boundary).
+4. Test with the value 100 (upper boundary).
+5. Test with the value 99 (just below the upper boundary).
+6. Test with the value 101 (just above the upper boundary).
+
+**Additional Considerations:**
+While BVA primarily focuses on boundary values, it can also be useful to consider other types of test cases such as:
+
+- **Negative Values:** Testing with negative values (e.g., -1) can help ensure that the application correctly handles invalid inputs.
+- **Even/Odd Values:** Testing with even and odd values within the valid range (e.g., 2, 3, 98, 99) can help identify any issues related to specific types of inputs.
+
+By focusing on these boundary values and additional considerations, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
+
+### Question 4.B (23 Marks)
+
+A shopping website offers different discounts depending upon each transaction
+made by the customer. The user enters the integer value of the purchase amount in Euro, then presses the Enter button. For example if a purchase amount is in the range €1 to €10 then no discount is displayed, a purchase over €10 and up to €300 have 10% discount calculated and displayed. Purchase amounts between €301 and up to €500 have 15% discount calculated and displayed, and purchases over €500 have a 20% discount calculated and displayed. The maximum purchase amount that can be entered is €1000 and the minimum amount is €1 and invalid input of any kind results in the warning message Invalid Input.
+
+Derive the equivalence classes and determine black box test cases based on these and utilise boundary value analysis.

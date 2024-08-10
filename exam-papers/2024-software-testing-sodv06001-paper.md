@@ -78,6 +78,19 @@ Develop the branch table for the code shown in Figure 1.
 
 Develop the block table for the code shown in Figure 1.
 
+## Question 4
+
+### Question 4.A (10 Marks)
+
+Explain why consideration of Boundary Value Analysis is useful when determining tests cases for the Equivalence Classes/Partitions you identify. Use a simple example to illustrate your answer.
+
+### Question 4.B (23 Marks)
+
+A shopping website offers different discounts depending upon each transaction
+made by the customer. The user enters the integer value of the purchase amount in Euro, then presses the Enter button. For example if a purchase amount is in the range €1 to €10 then no discount is displayed, a purchase over €10 and up to €300 have 10% discount calculated and displayed. Purchase amounts between €301 and up to €500 have 15% discount calculated and displayed, and purchases over €500 have a 20% discount calculated and displayed. The maximum purchase amount that can be entered is €1000 and the minimum amount is €1 and invalid input of any kind results in the warning message Invalid Input.
+
+Derive the equivalence classes and determine black box test cases based on these and utilise boundary value analysis.
+
 # Old Paper
 
 ```java
