@@ -1,4 +1,4 @@
-public class PieEater {
+public class PieEaterRefactoredBlocks {
 
   public static void main(String[] args) {
     System.out.println("I eat pie");
@@ -14,7 +14,7 @@ public class PieEater {
     block3(aGrid);
   }
 
-private void block3(Grid aGrid) {
+  private void block3(Grid aGrid) {
     for (int i = 1; i <= 10; i++) {
       if (aGrid.pieInSight(this) == true) {
         eatPie(aGrid);
@@ -26,12 +26,12 @@ private void block3(Grid aGrid) {
         }
       }
     }
-}
+  }
 
-private void block2() {
+  private void block2() {
     initialise();
     turn("Right");
-}
+  }
 
   private int pieCount;
 
