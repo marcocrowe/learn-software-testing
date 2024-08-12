@@ -181,9 +181,162 @@ Using my **Lines** table from **Answer 2.B**:
 1. The `break;` statement makes it impossible to break up the code into smaller blocks because the `break;` statement is part of the loop.
 2. Stricter interpretation of the block table would have the same start and end line code for blocks 4 and 5, but It would be pointless to block to call the same function.
 
-## Question 3 - (Total 33 Marks)
+## Question 3 - (Stubs) - [Total 33 Marks]
 
-# Missing
+A `QuotationLoader` component has a method called `loadQuotations` which contains business logic about processing of quotation data. The code for `loadQuotations` is
+shown in `Figure 2` below
+
+```java
+package io.github.username.exam.code;
+import java.util.Calendar;
+
+public class QuotationLoader {
+
+    public QuotationLoader() {}// Default constructor
+
+    public Boolean loadQuotations(String dataFile) {
+        //First piece of business logic is to check the datafile has a valid extension.
+        if (dataFile.endsWith(".data"))
+        {
+            // Next piece of business logic is to check that it is a Monday as this is
+            // the only day the quotations should be loaded.
+            Calendar cal = Calendar.getInstance();
+            if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY))
+            {
+                readTheDataFileAndLoadTheQuotations();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void readTheDataFileAndLoadTheQuotations() {
+        // This code is under construction and is not currently needed
+        // to unit test the business logic in the loadQuotations method.
+        /* ... */
+    }
+    /* ... */
+}
+```
+
+## Question 3.A (12 Marks)
+
+Refactor the QuotationLoader to make it testable by introducing a layer of indirection to avoid the dependency i.e. write code or pseudocode. Your refactoring should include adding an interface which will allow use of a configurable stub in the unit tests.
+
+```java
+package io.github.username.exam.code;
+import java.util.Calendar;
+
+/**
+ * Step 1: Introduce an Interface for the File Processing
+ * This interface defines the methods required for processing the quotation data file.
+ * i.e getter and setter for the file name because loadQuotations method needs to check the file extension
+ * and the method readTheDataFileAndLoadTheQuotations() because it is to be unit tested in the loadQuotations method.
+*/
+public interface QuotationFileProcessor {
+    String getFileName();
+    void setFileName(String fileName);
+    void readTheDataFileAndLoadTheQuotations();
+}
+
+/**
+ * Step 2: Refactor the QuotationLoader Class to make it testable
+ * The QuotationLoader class is refactored to use the QuotationFileProcessor interface through constructor injection.
+*/
+public class QuotationLoader {
+
+    /**
+     * Field to hold the QuotationFileProcessor by it's interface.
+     */
+    private final QuotationFileProcessor quotationFileProcessor;
+
+    /**
+     * Constructor to inject the QuotationFileProcessor.
+     * @param quotationFileProcessor The QuotationFileProcessor implementation.
+     */
+    public QuotationLoader(QuotationFileProcessor quotationFileProcessor) {
+        this.quotationFileProcessor = quotationFileProcessor;
+    }
+
+    /**
+     * Step 3: Refactor the loadQuotations method to use the QuotationFileProcessor field.
+     * */
+    public Boolean loadQuotations()
+    {
+        //First piece of business logic is to check the datafile has a valid extension.
+        if (quotationFileProcessor.getFileName().endsWith(".data"))  // Using quotationFileProcessor.getFileName() instead of dataFile
+        {
+            // Next piece of business logic is to check that it is a Monday as this is
+            // the only day the quotations should be loaded.
+            Calendar cal = Calendar.getInstance();
+            if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY))
+            {
+                quotationFileProcessor.readTheDataFileAndLoadTheQuotations();// Using quotationFileProcessor.readTheDataFileAndLoadTheQuotations() instead of readTheDataFileAndLoadTheQuotations()
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+```
+
+![1723483011835](images/2024-software-testing-sodv06001-solution/1723483011835.png)
+
+
+**Step 4 The Stub Class**  
+
+```java
+package io.github.username.exam.code;
+
+public class QuotationFileProcessorStub implements QuotationFileProcessor {
+
+    public String getFileName()
+    {
+        System.out.println("Getting file name");
+        return "quotation-file.data";
+    }
+    public void setFileName(String fileName)
+    {
+        System.out.println("Setting file name: " + fileName);
+    }
+    public void readTheDataFileAndLoadTheQuotations()
+    {
+        System.out.println("Reading and loading quotations from file");
+    }
+}
+```
+
+
+
+```java
+
+
+```java
+
+
+
+
+## Question 3.B (13 Marks)
+
+Write code or pseudocode for three unit tests to test the business logic in the loadQuotations method. Write code or pseudocode for a configurable stub to be used by your tests utilising constructor injection.
+
+## Question 3.C (8 Marks)
+
+Explain what is meant in unit testing by saying that you configured the fake to make happy noises for the test.
 
 ## Question 4
 
