@@ -232,6 +232,8 @@ public class QuotationLoader {
 
 Refactor the QuotationLoader to make it testable by introducing a layer of indirection to avoid the dependency i.e. write code or pseudocode. Your refactoring should include adding an interface which will allow use of a configurable stub in the unit tests.
 
+### Answer 3.A
+
 ```java
 package io.github.username.exam.code;
 import java.util.Calendar;
@@ -333,7 +335,6 @@ public class QuotationFileProcessorStub implements QuotationFileProcessor {
         System.out.println("Reading and loading quotations from file");
     }
 }
-
 public class CalendarProviderStub implements CalendarProvider {
 
     private int dayOfWeek;
