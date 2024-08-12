@@ -19,6 +19,14 @@ There are no additional requirements for this paper.
 
 Explain the relevance of the goal of software testing if you are asked about software testing in a work placement interview.
 
+### Answer 1.A
+
+The goal of software testing is to ensure that the software product meets the specified requirements, functions correctly, and is free from defects. In a work placement interview, discussing the relevance of this goal is essential to demonstrate an understanding of the importance of software testing in the software development lifecycle. Here are some key points to consider when explaining the relevance of the goal of software testing in a work placement interview:
+
+1. **Quality Assurance:** Software testing plays a critical role in quality assurance by verifying that the software meets the desired quality standards. It helps identify defects, bugs, and issues early in the development process, allowing for timely resolution and ensuring a high-quality product.
+2. **Risk Mitigation:** Testing helps mitigate risks associated with software development by identifying potential issues that could impact the software's performance, security, or reliability. By detecting and addressing defects early, testing reduces the likelihood of costly failures in production.
+3. **Customer Satisfaction:** Testing ensures that the software functions as intended and meets user expectations. By validating the software against the requirements, testing helps deliver a product that is reliable, user-friendly, and meets customer needs, thereby enhancing customer satisfaction.
+
 ### Question 1.B (11 Marks)
 
 What are the levels of software testing? Explain why you think there are a number of levels of software testing.
@@ -250,7 +258,6 @@ public interface CalendarProvider {
 
 public interface QuotationFileProcessor {
     String getFileName();
-    void setFileName(String fileName);
     void readTheDataFileAndLoadTheQuotations();
 }
 
@@ -314,8 +321,11 @@ public class QuotationLoader {
 
 Write code or pseudocode for three unit tests to test the business logic in the loadQuotations method. Write code or pseudocode for a configurable stub to be used by your tests utilising constructor injection.
 
+### Answer 3.B
+
 ```java
 package io.github.username.exam.code;
+import java.util.Calendar;
 
 public class QuotationFileProcessorStub implements QuotationFileProcessor {
 
@@ -399,6 +409,33 @@ public class OvertimeHoursProcessorTest {
 ## Question 3.C (8 Marks)
 
 Explain what is meant in unit testing by saying that you configured the fake to make happy noises for the test.
+
+### Answer 3.C
+
+In unit testing, configuring the fake to make happy noises means setting up the fake object (stub or mock) to return positive or successful responses during the test. This involves configuring the fake object to simulate the desired behavior or outcome that will satisfy the test conditions. By making the fake object produce happy noises, we ensure that the test scenario is executed successfully and the test case passes.
+
+```java
+package io.github.username.exam.code;
+import java.util.Calendar;
+
+public class CalendarProviderHappyStub implements CalendarProvider {
+
+    public int getDayOfWeek()
+    {
+        System.out.println("Getting a Happy day of week, so the test will pass");
+        return Calendar.MONDAY;
+    }
+}
+
+public class CalendarProviderMiserableStub implements CalendarProvider {
+
+    public int getDayOfWeek()
+    {
+        System.out.println("Getting A Miserable day of week, so the test will fail");
+        return Calendar.SUNDAY;
+    }
+}
+```
 
 ## Question 4
 
