@@ -12,11 +12,11 @@ There are no additional requirements for this paper.
 
 ## Question 1 [Total 33 Marks]
 
-### Question 1. A (11 Marks)
+### Question 1.A (11 Marks)
 
 Explain the relevance of the goal of software testing if you are asked about software testing in a work placement interview.
 
-### Answer 1. A
+### Answer 1.A
 
 The goal of software testing is to ensure that the software product meets the specified requirements, functions correctly, and is free from defects. In a work placement interview, discussing the relevance of this goal is essential to demonstrate an understanding of the importance of software testing in the software development lifecycle. Here are some key points to consider when explaining the relevance of the goal of software testing in a work placement interview:
 
@@ -24,19 +24,19 @@ The goal of software testing is to ensure that the software product meets the sp
 2. **Risk Mitigation:** Testing helps mitigate risks associated with software development by identifying potential issues that could impact the software's performance, security, or reliability. By detecting and addressing defects early, testing reduces the likelihood of costly failures in production.
 3. **Customer Satisfaction:** Testing ensures that the software functions as intended and meets user expectations. By validating the software against the requirements, testing helps deliver a product that is reliable, user-friendly, and meets customer needs, thereby enhancing customer satisfaction.
 
-### Question 1. B (11 Marks)
+### Question 1.B (11 Marks)
 
 What are the levels of software testing? Explain why you think there are a number of levels of software testing.
 
-### Answer 1. B
+### Answer 1.B
 
 ---
 
-### Question 1. C (11 Marks)
+### Question 1.C (11 Marks)
 
 Explain your understanding of user acceptance testing. Do you think you will be involved in user acceptance testing in the future, explain your answer?
 
-### Answer 1. C
+### Answer 1.C
 
 **User Acceptance Testing (UAT)** is the final phase of software testing where the software is tested by end-users to ensure that it meets their requirements and is ready for production release. UAT is conducted in a real-world environment to validate the software's functionality, usability, and performance from the user's perspective. The primary goal of UAT is to gain user approval and confidence in the software before it is deployed.
 
@@ -491,17 +491,16 @@ BVA aligns with the principles of functional testing and structural testing. Fun
 **Example:**
 Consider a software application that accepts an integer input between 1 and 100 (inclusive).
 
-* **Equivalence Classes:**
-  + Valid input: 1 to 100
-  + Invalid input: less than 1, greater than 100
-
-* **Boundary Values:**
-  + Lower boundary: 1
-  + Just below the lower boundary: 0
-  + Just above the lower boundary: 2
-  + Upper boundary: 100
-  + Just below the upper boundary: 99
-  + Just above the upper boundary: 101
+- **Equivalence Classes:**
+  - Valid input: 1 to 100
+  - Invalid input: less than 1, greater than 100
+- **Boundary Values:**
+  - Just below the lower boundary: 0
+  - Lower boundary: 1
+  - Just above the lower boundary: 2
+  - Just below the upper boundary: 99
+  - Upper boundary: 100
+  - Just above the upper boundary: 101
 
 **Test Cases:**
 
@@ -521,7 +520,7 @@ While BVA primarily focuses on boundary values, it can also be useful to conside
 
 By focusing on these boundary values and additional considerations, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
 
-### Question 4. B (23 Marks)
+### Question 4.B (23 Marks)
 
 A shopping website offers different discounts depending upon each transaction made by the customer. The user enters the integer value of the purchase amount in Euro, then presses the Enter button. For example if a purchase amount is in the range €1 to €10 then no discount is displayed, a purchase over €10 and up to €300 have 10% discount calculated and displayed. Purchase amounts between €301 and up to €500 have 15% discount calculated and displayed, and purchases over €500 have a 20% discount calculated and displayed. The maximum purchase amount that can be entered is €1000 and the minimum amount is €1 and invalid input of any kind results in the warning message Invalid Input.
 

@@ -178,42 +178,44 @@ Consider a software module that is intended to accept the `name of a grocery ite
 
 | Equiv classes | test-name                | Criteria                                                                                                                     | Valid/Invalid |
 |---------------|--------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------|
-| E01           | isNameValid              | item.name.isAlphaNumeric()                                                                                                   | Valid         |
-| E02           | isNameInvalid            | !item.name.isAlphaNumeric()                                                                                                  | Invalid       |
+| E01           | isNameValid              | item.name.isAlpha()                                                                                                          | Valid         |
+| E02           | isNameInvalid            | !item.name.isAlpha()                                                                                                         | Invalid       |
 | E03           | isNameLengthValid        | 2 <= item.name.length <= 15                                                                                                  | Valid         |
 | E04           | isNameLengthInValid      | item.name.length < 0 OR item.name.length > 15                                                                                | Invalid       |
-| E06           | isSizeListValid          | 0 < item.sizeList.length <= 5                                                                                                | Valid         |
-| E07           | isSizeListInValid        | item.sizeList.length < 0 OR item.sizeList.length > 5                                                                         | Invalid       |
-| E09           | isSizeListOrderAsc       | item.sizeList.isAscending()                                                                                                  | Valid         |
-| E10           | isNotSizeListOrderAsc    | !item.sizeList.isAscending()                                                                                                 | Invalid       |
-| E11           | isEachSizeWholeNumber    | for size in item.sizeList: size.isWholeNumber()                                                                              | Valid         |
-| E12           | isEachSizeNotWholeNumber | for size in item.sizeList: !size.isWholeNumber()                                                                             | Invalid       |
-| E13           | isEachSizeInRange        | for size in item.sizeList: size >= 1 AND size <= 48                                                                          | Valid         |
-| E14           | isEachSizeNotInRange     | for size in item.sizeList: size < 1 OR size > 48                                                                             | Invalid       |
-| E15           | isInputValid             | E01 AND E03 AND E06 AND E09 AND E11 AND E13                                                                                  | Valid         |
+| E05           | isSizeListValid          | 0 < item.sizeList.length <= 5                                                                                                | Valid         |
+| E06           | isSizeListInValid        | item.sizeList.length < 0 OR item.sizeList.length > 5                                                                         | Invalid       |
+| E07           | isSizeListOrderAsc       | item.sizeList.isAscending()                                                                                                  | Valid         |
+| E08           | isNotSizeListOrderAsc    | !item.sizeList.isAscending()                                                                                                 | Invalid       |
+| E09           | isEachSizeWholeNumber    | for size in item.sizeList: size.isWholeNumber()                                                                              | Valid         |
+| E10           | isEachSizeNotWholeNumber | for size in item.sizeList: !size.isWholeNumber()                                                                             | Invalid       |
+| E11           | isEachSizeInRange        | for size in item.sizeList: size >= 1 AND size <= 48                                                                          | Valid         |
+| E12           | isEachSizeNotInRange     | for size in item.sizeList: size < 1 OR size > 48                                                                             | Invalid       |
+| E13           | isInputValid             | E01 AND E03 AND E05 AND E07 AND E09 AND E11                                                                                  | Valid         |
 |               |                          | isNameValid AND isNameLengthValid AND isSizeListValid AND isSizeListOrderAsc AND isEachSizeWholeNumber AND isEachSizeInRange | Valid         |
-| E16           | isInputInvalid           | !E15                                                                                                                         | Invalid       |
+| E14           | isInputInvalid           | !E13                                                                                                                         | Invalid       |
 |               |                          | !isInputValid                                                                                                                | Invalid       |
 
 #### 2. Black Box Test Cases based on the Equivalence Classes
 
-| Test Case | Input                      | Expected Output | Equivalence Class Covered              |
-|-----------|----------------------------|-----------------|----------------------------------------|
-| TC1       | "Apple,1,2,3"              | Valid input     | Valid item name, valid sizes           |
-| TC2       | "A,1,2"                    | Invalid input   | Item name length < 2                   |
-| TC3       | "VeryLongItemNameHere,1,2" | Invalid input   | Item name length > 15                  |
-| TC4       | "Apple123,1,2"             | Invalid input   | Non-alphabetic characters in item name |
-| TC5       | "Apple,0,2,3"              | Invalid input   | Size < 1                               |
-| TC6       | "Apple,1,2,49"             | Invalid input   | Size > 48                              |
-| TC7       | "Apple,1.5,2,3"            | Invalid input   | Non-whole number size                  |
-| TC8       | "Apple,3,2,1"              | Invalid input   | Sizes not in ascending order           |
-| TC9       | "Apple,1,2,3,4,5,6"        | Invalid input   | More than 5 sizes                      |
-| TC10      | "Apple, 1 , 2 , 3 "        | Valid input     | Valid input with spaces                |
-| TC11      | "Banana,10,20,30,40,48"    | Valid input     | Valid item name, valid sizes           |
-| TC12      | "Banana,10,20,30,40,50"    | Invalid input   | Size > 48                              |
-| TC13      | "Banana,10,20,30,40,40"    | Valid input     | Duplicate sizes in ascending order     |
-| TC14      | "Banana,10,20,30,40,39"    | Invalid input   | Sizes not in ascending order           |
-| TC15      | "Banana,10,20,30,40,41"    | Valid input     | Valid item name, valid sizes           |
+*Note: `test-name` is for reference only. It is not part of Black Box Test Cases table answer.*
+
+| Test Case | Input                      | Expected Output | test-name                                                                                                          | Equivalence class covered                                                     |
+|-----------|----------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| TC1       | "Apple,1,2,3"              | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**                                        |
+| TC2       | "A,1,2"                    | Invalid input   | isNameValid, `isNameLengthInValid`, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, isEachSizeInRange  | E01, `E04`, E05, E07, E09, E11                                                |
+| TC3       | "VeryLongItemNameHere,1,2" | Invalid input   | isNameValid, `isNameLengthInValid`, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, isEachSizeInRange  | E01, `E04`, E05, E07, E09, E11                                                |
+| TC4       | "Apple123,1,2"             | Invalid input   | `isNameInvalid` isNameLengthValid, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, isEachSizeInRange   | `E02`, E03, E06, E09, E11, E13                                                |
+| TC5       | "Apple,0,2,3"              | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, `isEachSizeNotInRange` | E01, E03, E05, E07, E09, `E12`                                                |
+| TC6       | "Apple,1,2,49"             | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, `isEachSizeNotInRange` | E01, E03, E05, E07, E09, `E12`                                                |
+| TC7       | "Apple,1.5,2,3"            | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isSizeListOrderAsc, `isEachSizeNotWholeNumber`, isEachSizeInRange | E01, E03, E05, E07, `E10`, E11                                                |
+| TC8       | "Apple,3,2,1"              | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, `isNotSizeListOrderAsc`, isEachSizeWholeNumber, isEachSizeInRange | E01, E03, E05, `E08`, E09, E11                                                |
+| TC9       | "Apple,1,2,3,4,5,6"        | Invalid input   | isNameValid, isNameLengthValid, `isSizeListInValid`, isSizeListOrderAsc, isEachSizeWholeNumber, isEachSizeInRange  | E01, E03, `E06`, E07, E09, E11                                                |
+| TC10      | "Apple, 1 , 2 , 3 "        | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**  *(Valid input with spaces)*           |
+| TC11      | "Banana,10,20,30,40,48"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**                                        |
+| TC12      | "Banana,10,20,30,40,50"    | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, `isEachSizeNotInRange` | E01, E03, E05, E07, E09, `E12`                                                |
+| TC13      | "Banana,10,20,30,40,40"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)** *(Duplicate sizes in ascending order)* |
+| TC14      | "Banana,10,20,30,40,39"    | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isNotSizeListOrderAsc, isEachSizeWholeNumber, isEachSizeInRange   | E01, E03, E05, `E08`, E09, E11                                                |
+| TC15      | "Banana,10,20,30,40,41"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**                                        |
 
 ## Paper College Details
 
