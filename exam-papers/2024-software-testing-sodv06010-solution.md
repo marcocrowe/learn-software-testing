@@ -41,7 +41,7 @@ Explain your understanding of user acceptance testing. Do you think you will be 
 
 **User Acceptance Testing (UAT)** is the final phase of software testing where the software is tested by end-users to ensure that it meets their requirements and is ready for production release. UAT is conducted in a real-world environment to validate the software's functionality, usability, and performance from the user's perspective. The primary goal of UAT is to gain user approval and confidence in the software before it is deployed.
 
-![Software Requirements](images/2024-software-testing-sodv06001-solution/1723485853423.png)
+![Software Requirements](images/2024-software-testing-sodv06010-solution/answer-1c-software-requirements.png)
 
 **Figure: Software Requirements** Source: [Software Requirements(https://onion.training/wp-content/uploads/2024/04/Software-Requirements-980x327.png)]
 
@@ -323,7 +323,7 @@ public class QuotationLoader {
 }
 ```
 
-![1723483011835](images/2024-software-testing-sodv06001-solution/1723483011835.png)
+![1723483011835](images/2024-software-testing-sodv06010-solution/answer-3a-before-and-after.png)
 
 **Before and After Refactoring**  
 
@@ -447,7 +447,7 @@ public class CalendarProviderMiserableStub implements CalendarProvider {
 }
 ```
 
-## Question 4
+## Question 4 [Total 33 Marks]
 
 ### Question 4.A (10 Marks)
 

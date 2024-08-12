@@ -19,7 +19,7 @@
 |------------------|------|-----------|---------------------------------------------------------------|---------------------------------------------------------------------|
 | Software Testing | 2019 | SODV06002 | [Paper](exam-papers/2019-software-testing-sodv06002-paper.md) | [Solution](exam-papers/2019-software-testing-sodv06002-solution.md) |
 | Software Testing | 2022 | SODV06010 | [Paper](exam-papers/2022-software-testing-sodv06001-paper.md) | [Solution](exam-papers/2022-software-testing-sodv06001-solution.md) |
-| Software Testing | 2024 | SODV06010 | [Paper](exam-papers/2024-software-testing-sodv06001-paper.md) | [Solution](exam-papers/2024-software-testing-sodv06001-solution.md) |
+| Software Testing | 2024 | SODV06010 | [Paper](exam-papers/2024-software-testing-sodv06010-paper.md) | [Solution](exam-papers/2024-software-testing-sodv06010-solution.md) |
 
 ## Tools
 
