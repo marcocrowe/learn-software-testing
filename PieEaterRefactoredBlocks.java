@@ -1,4 +1,4 @@
-public class PieEaterRefactoredBlocks {
+public class PieEaterRefactoredBlocks implements PieEaterDefinition {
 
   public static void main(String[] args) {
     System.out.println("I eat pie");
@@ -49,16 +49,5 @@ public class PieEaterRefactoredBlocks {
 
   void walk(Grid aGrid) {
     System.out.println("Walked");
-  }
-
-  class Grid {
-
-    boolean pieInSight(PieEater pieEater) {
-      return true;
-    }
-
-    boolean clearAhead(PieEater pieEater) {
-      return true;
-    }
   }
 }

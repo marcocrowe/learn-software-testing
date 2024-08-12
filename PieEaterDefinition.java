@@ -1,20 +1,16 @@
-public class PieEater {
+public interface PieEaterDefinition {
+  public Integer walkAndEatPies(Grid aGrid);
+}
+
+class PieEater implements PieEaterDefinition {
 
   public static void main(String[] args) {
     System.out.println("I eat pie");
   }
 
   public Integer walkAndEatPies(Grid aGrid) {
-    block1(aGrid);
-    return pieCount;
-  }
-
-  private void block1(Grid aGrid) {
-    block2();
-    block3(aGrid);
-  }
-
-private void block3(Grid aGrid) {
+    initialise();
+    turn("Right");
     for (int i = 1; i <= 10; i++) {
       if (aGrid.pieInSight(this) == true) {
         eatPie(aGrid);
@@ -26,12 +22,8 @@ private void block3(Grid aGrid) {
         }
       }
     }
-}
-
-private void block2() {
-    initialise();
-    turn("Right");
-}
+    return pieCount;
+  }
 
   private int pieCount;
 
@@ -50,15 +42,15 @@ private void block2() {
   void walk(Grid aGrid) {
     System.out.println("Walked");
   }
+}
 
-  class Grid {
+class Grid {
 
-    boolean pieInSight(PieEater pieEater) {
-      return true;
-    }
+  boolean pieInSight(PieEaterDefinition pieEater) {
+    return true;
+  }
 
-    boolean clearAhead(PieEater pieEater) {
-      return true;
-    }
+  boolean clearAhead(PieEaterDefinition pieEater) {
+    return true;
   }
 }
