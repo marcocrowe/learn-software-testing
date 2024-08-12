@@ -164,20 +164,20 @@ No need to number `blank lines`, `lines with curly braces` or `else` statements.
 
 *`From Line` and `To Line` are for reference only. They are not part of the branch table.*
 
-| Branch No. | From Line # | To Line # | Branch Type        | | From Line                                     | To Line                              |
-|:-----------|:------------|:----------|:-------------------|-|:----------------------------------------------|:-------------------------------------|
-| 1          | 1           | 2         | Unconditional      | | `initialise();`                               | `turn("Right");`                     |
-| 2          | 2           | 3         | Unconditional      | | `turn("Right");`                              | `for(int i=1; i <= 10; i++)`         |
-| 3          | 3           | 4         | Conditional Loop   | | `for(int i=1; i <= 10; i++)` is True          | `if(aGrid.pieInSight(this) == true)` |
-| 4          | 3           | 9         | Conditional Loop   | | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;`                   |
-| 5          | 4           | 5         | Conditional Branch | | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);`                     |
-| 6          | 4           | 6         | Conditional Branch | | `if(aGrid.pieInSight(this) == true)` is False | `if(aGrid.clearAhead(this) == true)` |
-| 7          | 5           | 3         | Unconditional      | | `eatPie(aGrid);`                              | `for(int i=1; i <= 10; i++)`         |
-| 8          | 6           | 7         | Conditional Branch | | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);`                       |
-| 9          | 6           | 8         | Conditional Branch | | `if(aGrid.clearAhead(this) == true)` is False | `break;`                             |
-| 10         | 7           | 3         | Unconditional      | | `walk(aGrid);`                                | `for(int i=1; i <= 10; i++)`         |
-| 11         | 8           | 9         | Unconditional      | | `break;`                                      | `return pieCount;`                   |
-| 12         | 9           | 10        | Unconditional      | | `return pieCount;`                            | **END**                              |
+| Branch No. | From Line # | To Line # | Branch Type        |   | From Line                                     | To Line                              |
+|:-----------|:------------|:----------|:-------------------|---|:----------------------------------------------|:-------------------------------------|
+| 1          | 1           | 2         | Unconditional      |   | `initialise();`                               | `turn("Right");`                     |
+| 2          | 2           | 3         | Unconditional      |   | `turn("Right");`                              | `for(int i=1; i <= 10; i++)`         |
+| 3          | 3           | 4         | Conditional Loop   |   | `for(int i=1; i <= 10; i++)` is True          | `if(aGrid.pieInSight(this) == true)` |
+| 4          | 3           | 9         | Conditional Loop   |   | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;`                   |
+| 5          | 4           | 5         | Conditional Branch |   | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);`                     |
+| 6          | 4           | 6         | Conditional Branch |   | `if(aGrid.pieInSight(this) == true)` is False | `if(aGrid.clearAhead(this) == true)` |
+| 7          | 5           | 3         | Unconditional      |   | `eatPie(aGrid);`                              | `for(int i=1; i <= 10; i++)`         |
+| 8          | 6           | 7         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);`                       |
+| 9          | 6           | 8         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is False | `break;`                             |
+| 10         | 7           | 3         | Unconditional      |   | `walk(aGrid);`                                | `for(int i=1; i <= 10; i++)`         |
+| 11         | 8           | 9         | Unconditional      |   | `break;`                                      | `return pieCount;`                   |
+| 12         | 9           | 10        | Unconditional      |   | `return pieCount;`                            | **END**                              |
 
 ### Question 2.C (11 Marks)
 
@@ -189,14 +189,14 @@ Using my **Lines** table from **Answer 2.B**:
 
 *From `Start Line Code` and `End Line Code` are for reference only. They are not part of the block table.*
 
-| Block Number | Start Line | End Line | Start Line Code              | End Line Code    |        |
-|--------------|------------|----------|------------------------------|------------------|--------|
-| 1            | 1          | 2        | `initialise();`              | `turn("Right");` |        |
-| 2            | 3          | 8        | `for(int i=1; i <= 10; i++)` | `break;`         | Note 1 |
-| 3            | 9          | 10       | `return pieCount;`           | **END**          |        |
-|              |            |          |                              |                  |        |
-| 4            | 5          | 5        | `eatPie(aGrid);`             | `eatPie(aGrid);` | Note 2 |
-| 5            | 7          | 7        | `walk(aGrid);`               | `walk(aGrid);`   | Note 2 |
+| Block Number | Start Line | End Line |   | Start Line Code              | End Line Code    |        |
+|--------------|------------|----------|---|------------------------------|------------------|--------|
+| 1            | 1          | 2        |   | `initialise();`              | `turn("Right");` |        |
+| 2            | 3          | 8        |   | `for(int i=1; i <= 10; i++)` | `break;`         | Note 1 |
+| 3            | 9          | 10       |   | `return pieCount;`           | **END**          |        |
+|              |            |          |   |                              |                  |        |
+| 4            | 5          | 5        |   | `eatPie(aGrid);`             | `eatPie(aGrid);` | Note 2 |
+| 5            | 7          | 7        |   | `walk(aGrid);`               | `walk(aGrid);`   | Note 2 |
 
 **Notes**:
 
@@ -574,30 +574,30 @@ For each equivalence class, we will identify the boundary values and create test
 
 **Black Box Test Cases:**  
 
-| Test case |   Input | Output        | Equivalence class covered |
-|-----------|--------:|---------------|---------------------------|
-| TC1       |      €1 | No discount   | E1                        |
-| TC2       |      €2 | No discount   | E1                        |
-| TC3       |      €9 | No discount   | E1                        |
-| TC4       |     €10 | No discount   | E1                        |
-| TC5       |     €11 | 10% discount  | E2                        |
-| TC6       |     €12 | 10% discount  | E2                        |
-| TC7       |    €299 | 10% discount  | E2                        |
-| TC8       |    €300 | 10% discount  | E2                        |
-| TC9       |    €301 | 15% discount  | E3                        |
-| TC10      |    €302 | 15% discount  | E3                        |
-| TC11      |    €499 | 15% discount  | E3                        |
-| TC12      |    €500 | 15% discount  | E3                        |
-| TC13      |    €501 | 20% discount  | E4                        |
-| TC14      |    €502 | 20% discount  | E4                        |
-| TC15      |    €999 | 20% discount  | E4                        |
-| TC16      |   €1000 | 20% discount  | E4                        |
-| TC17      |      €0 | Invalid Input | E5                        |
-| TC18      |     -€1 | Invalid Input | E5                        |
-| TC19      |   €1001 | Invalid Input | E6                        |
-| TC20      |   "abc" | Invalid Input | E7                        |
-| TC21      |   "@#$" | Invalid Input | E7                        |
-| TC22      |    €1.5 | No discount?  | E1                        |
+| Test case |   Input | Output                         | Equivalence class covered |
+|-----------|--------:|--------------------------------|---------------------------|
+| TC1       |      €1 | No discount                    | E1                        |
+| TC2       |      €2 | No discount                    | E1                        |
+| TC3       |      €9 | No discount                    | E1                        |
+| TC4       |     €10 | No discount                    | E1                        |
+| TC5       |     €11 | 10% discount                   | E2                        |
+| TC6       |     €12 | 10% discount                   | E2                        |
+| TC7       |    €299 | 10% discount                   | E2                        |
+| TC8       |    €300 | 10% discount                   | E2                        |
+| TC9       |    €301 | 15% discount                   | E3                        |
+| TC10      |    €302 | 15% discount                   | E3                        |
+| TC11      |    €499 | 15% discount                   | E3                        |
+| TC12      |    €500 | 15% discount                   | E3                        |
+| TC13      |    €501 | 20% discount                   | E4                        |
+| TC14      |    €502 | 20% discount                   | E4                        |
+| TC15      |    €999 | 20% discount                   | E4                        |
+| TC16      |   €1000 | 20% discount                   | E4                        |
+| TC17      |      €0 | Invalid Input                  | E5                        |
+| TC18      |     -€1 | Invalid Input                  | E5                        |
+| TC19      |   €1001 | Invalid Input                  | E6                        |
+| TC20      |   "abc" | Invalid Input                  | E7                        |
+| TC21      |   "@#$" | Invalid Input                  | E7                        |
+| TC22      |    €1.5 | No discount?                   | E1                        |
 | TC23      |  €1.525 | No discount or Invalid Input?  | E1                        |
 | TC24      | €500.50 | 20% discount or Invalid Input? | E4                        |
 
@@ -616,14 +616,14 @@ Filename: 2024-software-testing-sodv06010-solution.md
 
 ### Programmes
 
-| Code           | Programme                                          |
-|----------------|----------------------------------------------------|
-| LC\_KMWCM\_KMY | Bsc. (Honours) Mobile and Web Computing            |
-| LC\_KSOFM\_KMY | Bsc. (Honours) Software Development                |
-| LC\_KCPTM\_JMY | Bsc. Computing                                     |
-| LC\_KMWCM\_JMY | Bsc. Mobile and Web Computing                      |
-| LC\_KISYM\_JMY | Bsc. Internet Systems Development                  |
-| LC\_KISYM\_KMY | Bsc. (Honours) Internet Systems Development        |
+| Code           | Programme                                   |
+|----------------|---------------------------------------------|
+| LC\_KMWCM\_KMY | Bsc. (Honours) Mobile and Web Computing     |
+| LC\_KSOFM\_KMY | Bsc. (Honours) Software Development         |
+| LC\_KCPTM\_JMY | Bsc. Computing                              |
+| LC\_KMWCM\_JMY | Bsc. Mobile and Web Computing               |
+| LC\_KISYM\_JMY | Bsc. Internet Systems Development           |
+| LC\_KISYM\_KMY | Bsc. (Honours) Internet Systems Development |
 
 ### Examiners
 
