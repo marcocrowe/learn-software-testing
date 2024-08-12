@@ -162,20 +162,22 @@ No need to number `blank lines`, `lines with curly braces` or `else` statements.
 
 **Branch Table**  
 
-| Branch No. | From Line # | To Line # | Branch Type        | From Line                                     | To Line                              |
-|:-----------|:------------|:----------|:-------------------|:----------------------------------------------|:-------------------------------------|
-| 1          | 1           | 2         | Unconditional      | `initialise();`                               | `turn("Right");`                     |
-| 2          | 2           | 3         | Unconditional      | `turn("Right");`                              | `for(int i=1; i <= 10; i++)`         |
-| 3          | 3           | 4         | Conditional Loop   | `for(int i=1; i <= 10; i++)` is True          | `if(aGrid.pieInSight(this) == true)` |
-| 4          | 3           | 9         | Conditional Loop   | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;`                   |
-| 5          | 4           | 5         | Conditional Branch | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);`                     |
-| 6          | 4           | 6         | Conditional Branch | `if(aGrid.pieInSight(this) == true)` is False | `if(aGrid.clearAhead(this) == true)` |
-| 7          | 5           | 3         | Unconditional      | `eatPie(aGrid);`                              | `for(int i=1; i <= 10; i++)`         |
-| 8          | 6           | 7         | Conditional Branch | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);`                       |
-| 9          | 6           | 8         | Conditional Branch | `if(aGrid.clearAhead(this) == true)` is False | `break;`                             |
-| 10         | 7           | 3         | Unconditional      | `walk(aGrid);`                                | `for(int i=1; i <= 10; i++)`         |
-| 11         | 8           | 9         | Unconditional      | `break;`                                      | `return pieCount;`                   |
-| 12         | 9           | 10        | Unconditional      | `return pieCount;`                            | **END**                              |
+*`From Line` and `To Line` are for reference only. They are not part of the branch table.*
+
+| Branch No. | From Line # | To Line # | Branch Type        | | From Line                                     | To Line                              |
+|:-----------|:------------|:----------|:-------------------|-|:----------------------------------------------|:-------------------------------------|
+| 1          | 1           | 2         | Unconditional      | | `initialise();`                               | `turn("Right");`                     |
+| 2          | 2           | 3         | Unconditional      | | `turn("Right");`                              | `for(int i=1; i <= 10; i++)`         |
+| 3          | 3           | 4         | Conditional Loop   | | `for(int i=1; i <= 10; i++)` is True          | `if(aGrid.pieInSight(this) == true)` |
+| 4          | 3           | 9         | Conditional Loop   | | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;`                   |
+| 5          | 4           | 5         | Conditional Branch | | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);`                     |
+| 6          | 4           | 6         | Conditional Branch | | `if(aGrid.pieInSight(this) == true)` is False | `if(aGrid.clearAhead(this) == true)` |
+| 7          | 5           | 3         | Unconditional      | | `eatPie(aGrid);`                              | `for(int i=1; i <= 10; i++)`         |
+| 8          | 6           | 7         | Conditional Branch | | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);`                       |
+| 9          | 6           | 8         | Conditional Branch | | `if(aGrid.clearAhead(this) == true)` is False | `break;`                             |
+| 10         | 7           | 3         | Unconditional      | | `walk(aGrid);`                                | `for(int i=1; i <= 10; i++)`         |
+| 11         | 8           | 9         | Unconditional      | | `break;`                                      | `return pieCount;`                   |
+| 12         | 9           | 10        | Unconditional      | | `return pieCount;`                            | **END**                              |
 
 ### Question 2.C (11 Marks)
 
@@ -184,6 +186,8 @@ Develop the block table for the code shown in Figure 1.
 ### Answer 2.C
 
 Using my **Lines** table from **Answer 2.B**:
+
+*From `Start Line Code` and `End Line Code` are for reference only. They are not part of the block table.*
 
 | Block Number | Start Line | End Line | Start Line Code              | End Line Code    |        |
 |--------------|------------|----------|------------------------------|------------------|--------|
