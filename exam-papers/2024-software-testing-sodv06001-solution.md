@@ -226,6 +226,8 @@ public class QuotationLoader {
 }
 ```
 
+**Figure 2**  
+
 ## Question 3.A (12 Marks)
 
 Refactor the QuotationLoader to make it testable by introducing a layer of indirection to avoid the dependency i.e. write code or pseudocode. Your refactoring should include adding an interface which will allow use of a configurable stub in the unit tests.
@@ -240,6 +242,10 @@ import java.util.Calendar;
  * i.e getter and setter for the file name because loadQuotations method needs to check the file extension
  * and the method readTheDataFileAndLoadTheQuotations() because it is to be unit tested in the loadQuotations method.
 */
+public interface CalendarProvider {
+    int getDayOfWeek();
+}
+
 public interface QuotationFileProcessor {
     String getFileName();
     void setFileName(String fileName);
@@ -256,12 +262,17 @@ public class QuotationLoader {
      * Field to hold the QuotationFileProcessor by it's interface.
      */
     private final QuotationFileProcessor quotationFileProcessor;
+    /**
+     * Field to hold the CalendarProvider by it's interface.
+     */
+    private final CalendarProvider calendarProvider;
 
     /**
      * Constructor to inject the QuotationFileProcessor.
      * @param quotationFileProcessor The QuotationFileProcessor implementation.
+     * @param calendarProvider The CalendarProvider implementation.
      */
-    public QuotationLoader(QuotationFileProcessor quotationFileProcessor) {
+    public QuotationLoader(QuotationFileProcessor quotationFileProcessor, CalendarProvider calendarProvider) {
         this.quotationFileProcessor = quotationFileProcessor;
     }
 
@@ -275,8 +286,7 @@ public class QuotationLoader {
         {
             // Next piece of business logic is to check that it is a Monday as this is
             // the only day the quotations should be loaded.
-            Calendar cal = Calendar.getInstance();
-            if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY))
+            if(calendarProvider.getDayOfWeek() == Calendar.MONDAY)
             {
                 quotationFileProcessor.readTheDataFileAndLoadTheQuotations();// Using quotationFileProcessor.readTheDataFileAndLoadTheQuotations() instead of readTheDataFileAndLoadTheQuotations()
                 return true;
@@ -296,43 +306,94 @@ public class QuotationLoader {
 
 ![1723483011835](images/2024-software-testing-sodv06001-solution/1723483011835.png)
 
+**Before and After Refactoring**  
 
-**Step 4 The Stub Class**  
+## Question 3.B (13 Marks)
+
+Write code or pseudocode for three unit tests to test the business logic in the loadQuotations method. Write code or pseudocode for a configurable stub to be used by your tests utilising constructor injection.
 
 ```java
 package io.github.username.exam.code;
 
 public class QuotationFileProcessorStub implements QuotationFileProcessor {
 
+    private String fileName;
     public String getFileName()
     {
         System.out.println("Getting file name");
-        return "quotation-file.data";
+        return fileName;
     }
     public void setFileName(String fileName)
     {
         System.out.println("Setting file name: " + fileName);
+        this.fileName = fileName;
     }
     public void readTheDataFileAndLoadTheQuotations()
     {
         System.out.println("Reading and loading quotations from file");
     }
 }
+
+public class CalendarProviderStub implements CalendarProvider {
+
+    private int dayOfWeek;
+    public int getDayOfWeek()
+    {
+        System.out.println("Getting day of week");
+        return dayOfWeek;
+    }
+    public void setDayOfWeek(int dayOfWeek)
+    {
+        System.out.println("Setting day of week: " + dayOfWeek);
+        this.dayOfWeek = dayOfWeek;
+    }
+}
 ```
 
-
-
 ```java
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
+public class OvertimeHoursProcessorTest {
 
-```java
+    @Test
+    public void testQuotationLoaderWithValidFileOnValidDay() {
+        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
+        fileProcessorStub.setFileName("valid-data-file.data");
 
+        CalendarProviderStub calendarStub = new CalendarProviderStub();
+        calendarStub.setDayOfWeek(Calendar.MONDAY);
 
+        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
+        assertTrue(loader.loadQuotations());
+    }
 
+    @Test
+    public void testQuotationLoaderWithInvalidFileOnValidDay() {
+        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
+        fileProcessorStub.setFileName("invalid-data-file.invalid");
 
-## Question 3.B (13 Marks)
+        CalendarProviderStub calendarStub = new CalendarProviderStub();
+        calendarStub.setDayOfWeek(Calendar.MONDAY);
 
-Write code or pseudocode for three unit tests to test the business logic in the loadQuotations method. Write code or pseudocode for a configurable stub to be used by your tests utilising constructor injection.
+        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
+        assertFalse(loader.loadQuotations());
+    }
+
+    @Test
+    public void testQuotationLoaderWithValidFileOnInvalidDay() {
+        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
+        fileProcessorStub.setFileName("valid-data-file.data");
+
+        CalendarProviderStub calendarStub = new CalendarProviderStub();
+        calendarStub.setDayOfWeek(Calendar.Sunday);
+
+        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
+        assertFalse(loader.loadQuotations());
+    }
+}
+```
 
 ## Question 3.C (8 Marks)
 

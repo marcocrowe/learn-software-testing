@@ -293,7 +293,6 @@ public class OvertimeHoursFileProcessorStub implements OvertimeHoursFileProcesso
     private static final Log log = LogFactory.getLog(OvertimeHoursFileProcessorStub.class);
     private String overtimeHoursFile;
 
-
     public String getOvertimeHoursFile() {
         return "overtimeHoursFile";
     }

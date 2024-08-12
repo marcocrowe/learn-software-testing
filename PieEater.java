@@ -5,48 +5,49 @@ public class PieEater {
   }
 
   public Integer walkAndEatPies(Grid aGrid) {
-    extracted();
-    return extracted2(aGrid);
-  }
-
-private Integer extracted2(Grid aGrid) {
-    extracted3(aGrid);
-    return pieCount;
-}
-
-private void extracted3(Grid aGrid) {
+    initialise();
+    turn("Right");
     for (int i = 1; i <= 10; i++) {
       if (aGrid.pieInSight(this) == true) {
-        extracted6(aGrid);
+        eatPie(aGrid);
       } else {
         if (aGrid.clearAhead(this) == true) {
-          extracted5(aGrid);
+          walk(aGrid);
         } else {
-            turn("Left");
-            turn("Right");
           break;
         }
       }
     }
-}
+    return pieCount;
+  }
 
-private void extracted6(Grid aGrid) {
-    eatPie(aGrid);
-    eatPie(aGrid);
-    eatPie(aGrid);
-    eatPie(aGrid);
-}
 
-private void extracted5(Grid aGrid) {
-    walk(aGrid);
-}
+  private int pieCount;
+  
+  void initialise() {
+    pieCount = 0;
+  }
 
-private void extracted4(Grid aGrid) {
-   
-}
+  void turn(String direction) {
+    System.out.println("Turned " + direction);
+  }
 
-private void extracted() {
-    initialise();
-    turn("Right");
-}
+  void eatPie(Grid aGrid) {
+    System.out.println("Ate pie");
+  }
+
+  void walk(Grid aGrid) {
+    System.out.println("Walked");
+  }
+
+  class Grid {
+
+    boolean pieInSight(PieEater pieEater) {
+      return true;
+    }
+
+    boolean clearAhead(PieEater pieEater) {
+      return true;
+    }
+  }
 }
