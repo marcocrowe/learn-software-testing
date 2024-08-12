@@ -1,0 +1,21 @@
+{
+	"recommendations": [
+		"alanwalk.markdown-navigation",
+		"davidanson.vscode-markdownlint",
+		"streetsidesoftware.code-spell-checker",
+		"yzhang.markdown-all-in-one",
+		"maptz.camelcasenavigation",
+		"wmaurer.change-case",
+		"bierner.markdown-footnotes",
+		"mdickin.markdown-shortcuts",
+		"darkriszty.markdown-table-prettify",
+		"cweijan.vscode-office",
+		"wraith13.open-in-github-desktop",
+		"mechatroner.rainbow-csv",
+		"sonarsource.sonarlint-vscode",
+		"gruntfuggly.todo-tree",
+		"vscode-icons-team.vscode-icons",
+        "jannisx11.batch-rename-extension",
+        "danielroedl.meld-diff",
+	]
+}
