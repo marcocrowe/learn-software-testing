@@ -1,0 +1,72 @@
+﻿**Software Testing Project K00283736** 
+
+Q1.   
+
+In the field of software development, unit testing is a fundamental component that is used to guarantee the dependability, resilience, and maintainability of software programmes. The Software Testing module's lectures and hands-on sessions have greatly enhanced, enlightened, and transformed my path into the world of unit testing. 
+
+Simply put, unit testing is the essence of the proactive search for quality, promoting the concept of quality by design. Unit testing, which carefully examines and validates each component separately, enables developers to identify and fix bugs at the source, promoting accuracy and quality throughout the software development lifecycle. 
+
+I studied the theoretical basis of unit testing during the lectures, studying its principles, methods, and best practices. Ideas like high test coverage and test-driven development, in which tests are written before the code itself, were explained, offering a strong theoretical framework that would support successful practical implementation. 
+
+I started by writing test cases, running them, and use industry-standard testing frameworks to analyse the outcomes. Through practical testing, I gradually learned how to navigate the complexity of test fixtures, assertions, and test suites, which improved my ability to write comprehensive and flexible tests. 
+
+The module provided insight into the wider structure that supports unit testing, going beyond the boundaries of individual test cases. To observe firsthand how automated tests act as the front-runners of code quality, preventing regressions and guaranteeing the integrity of each code commit, I investigated the incorporation of unit testing into continuous integration pipelines.  
+
+The idea of applying my theoretical understanding and practical experience to make real contributions in a work environment excites me much. The chance to work for your respected organisation, where unit testing is valued as a vital component of software quality, is a perfect fit for my intentions and values. 
+
+Q2. 
+
+Equivalence Classes: 
+
+**Item Name:**  
+
+Valid: Alphabetic string between 5 and 15 characters long. 
+
+Invalid: Non-alphabetical characters, strings shorter than 5 characters, or longer than 15 characters.  
+
+**Steel Lengths:** 
+
+Valid: Numbers between 1 and 8. 
+
+Invalid: Numbers outside the range of 1 and 8, decimal characters. 
+
+**Number of Steel Lengths:** 
+
+Valid: 1 to 4 lengths 
+
+Invalid: Less than 1 or greater than 4 lengths 
+
+Generate Black Box testing: 
+
+**Valid Item Name and Steel Lengths:** 
+
+- Valid item names and lengths within the range should be used for testing.** 
+- Test using the maximum number of lengths (4 lengths) and a valid item name. 
+- Test using one length at the top boundary (8) and one at the lower boundary (1) and a valid item name. 
+
+**Invalid Item Name:** 
+
+- Test with non-alphabetical item name 
+- Test with item name shorter than 5 characters  
+- Test with an item name greater than 15 characters. 
+
+**Invalid Steel Name:** 
+
+- Test the steel length using a decimal number. 
+- Test using a steel length (e.g., 0 and 9) that is outside the valid range. 
+- For steel lengths, test using characters that are not numbers. 
+
+**Invalid Number lengths of Steel:** 
+
+- Test without any supplied steel lengths. 
+- Test with lengths longer than the maximum allowed (5 or more lengths). 
+
+The abilities and information used to respond to Question 2 are very relevant to scenarios involving professional software testing. 
+
+Equivalence Class Partitioning: 
+
+- Finding pertinent equivalency classes is essential to creating efficient test cases that offer the most coverage with the least amount of redundancy. To guarantee that software systems are thoroughly tested, this ability is crucial in professional testing. 
+
+Black Box Testing Techniques: 
+
+- By using black box testing methods like boundary value analysis and equivalency partitioning, testers can create test cases without having to know the internal workings of the system. This approach guarantees thorough testing of programme functionality and identifies possible faults. 
