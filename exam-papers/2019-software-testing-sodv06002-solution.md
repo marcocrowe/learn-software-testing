@@ -214,7 +214,7 @@ Consider a software module that is intended to accept the `name of a grocery ite
 | TC11      | "Banana,10,20,30,40,48"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**                                        |
 | TC12      | "Banana,10,20,30,40,50"    | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, isSizeListOrderAsc, isEachSizeWholeNumber, `isEachSizeNotInRange` | E01, E03, E05, E07, E09, `E12`                                                |
 | TC13      | "Banana,10,20,30,40,40"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)** *(Duplicate sizes in ascending order)* |
-| TC14      | "Banana,10,20,30,40,39"    | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, `isNotSizeListOrderAsc`, isEachSizeWholeNumber, isEachSizeInRange   | E01, E03, E05, `E08`, E09, E11                                                |
+| TC14      | "Banana,10,20,30,40,39"    | Invalid input   | isNameValid, isNameLengthValid, isSizeListValid, `isNotSizeListOrderAsc`, isEachSizeWholeNumber, isEachSizeInRange | E01, E03, E05, `E08`, E09, E11                                                |
 | TC15      | "Banana,10,20,30,40,41"    | Valid input     | isInputValid                                                                                                       | E01, E03, E05, E07, E09, E11 **(E13)**                                        |
 
 ## Paper College Details

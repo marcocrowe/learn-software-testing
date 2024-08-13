@@ -261,58 +261,37 @@ package io.github.username.exam.code;
 import java.util.Calendar;
 
 /**
- * Step 1: Introduce an Interface for the File Processing
- * This interface defines the methods required for processing the quotation data file.
- * i.e getter and setter for the file name because loadQuotations method needs to check the file extension
- * and the method readTheDataFileAndLoadTheQuotations() because it is to be unit tested in the loadQuotations method.
-*/
-public interface CalendarProvider {
+ * STEP 1: Introduce an Interface to Provider a Day of the Week from a Calendar
+ * This interface defines the Calendar output required for validating the day of the week.
+ * i.e getter for the day of the week.
+ */
+public interface CalendarProvider
+{
     int getDayOfWeek();
 }
-
-public interface QuotationFileProcessor {
-    String getFileName();
-    void readTheDataFileAndLoadTheQuotations();
-}
-
 /**
- * Step 2: Refactor the QuotationLoader Class to make it testable
- * The QuotationLoader class is refactored to use the QuotationFileProcessor interface through constructor injection.
+ * STEP 2: Refactor the QuotationLoader Class to make it testable
+ * The QuotationLoader class is refactored to use the CalendarProvider interface through method injection.
 */
-public class QuotationLoader {
-
+public class QuotationLoader
+{
+    public QuotationLoader() {} // Default constructor
     /**
-     * Field to hold the QuotationFileProcessor by it's interface.
+     * STEP 3: Refactor the loadQuotations method to use the CalendarProvider parameter.
+     * @param dataFile The data file to be loaded.
+     * @param calendarProvider The CalendarProvider to get the day of the week.
+     * @return true if the quotations are loaded successfully, false otherwise.
      */
-    private final QuotationFileProcessor quotationFileProcessor;
-    /**
-     * Field to hold the CalendarProvider by it's interface.
-     */
-    private final CalendarProvider calendarProvider;
-
-    /**
-     * Constructor to inject the QuotationFileProcessor.
-     * @param quotationFileProcessor The QuotationFileProcessor implementation.
-     * @param calendarProvider The CalendarProvider implementation.
-     */
-    public QuotationLoader(QuotationFileProcessor quotationFileProcessor, CalendarProvider calendarProvider) {
-        this.calendarProvider = calendarProvider;
-        this.quotationFileProcessor = quotationFileProcessor;
-    }
-
-    /**
-     * Step 3: Refactor the loadQuotations method to use the QuotationFileProcessor field.
-     * */
-    public Boolean loadQuotations()
+    public Boolean loadQuotations(String dataFile, CalendarProvider calendarProvider)
     {
         //First piece of business logic is to check the datafile has a valid extension.
-        if (quotationFileProcessor.getFileName().endsWith(".data"))  // Using quotationFileProcessor.getFileName() instead of dataFile
+        if (dataFile.endsWith(".data"))
         {
             // Next piece of business logic is to check that it is a Monday as this is
             // the only day the quotations should be loaded.
-            if(calendarProvider.getDayOfWeek() == Calendar.MONDAY)
+            if(calendarProvider.getDayOfWeek() == Calendar.MONDAY) // Refactored to use the CalendarProvider
             {
-                quotationFileProcessor.readTheDataFileAndLoadTheQuotations();// Using quotationFileProcessor.readTheDataFileAndLoadTheQuotations() instead of readTheDataFileAndLoadTheQuotations()
+                readTheDataFileAndLoadTheQuotations();
                 return true;
             }
             else
@@ -325,10 +304,15 @@ public class QuotationLoader {
             return false;
         }
     }
+    public void readTheDataFileAndLoadTheQuotations() {
+        // This code is under construction and is not currently needed
+        // to unit test the business logic in the loadQuotations method.
+        /* ... */
+    }
 }
 ```
 
-![1723483011835](images/2024-software-testing-sodv06010-solution/answer-3a-before-and-after.png)
+![Before and After Refactoring](images/2024-software-testing-sodv06010-solution/answer-3a-before-and-after.png)
 
 **A better less complex `loadQuotations` method**  
 
@@ -336,17 +320,18 @@ public class QuotationLoader {
 /* ... */
 public class QuotationLoader {
     /* ... */
-    public Boolean loadQuotations()
+    public Boolean loadQuotations(String dataFile, CalendarProvider calendarProvider)
     {
-        if (!quotationFileProcessor.getFileName().endsWith(".data"))
+        if (!dataFile.endsWith(".data"))
             return false;
 
         if(!calendarProvider.getDayOfWeek() == Calendar.MONDAY)
             return false;
 
-        quotationFileProcessor.readTheDataFileAndLoadTheQuotations();
+        readTheDataFileAndLoadTheQuotations();
         return true;
     }
+    /* ... */
 }
 ```
 
@@ -362,24 +347,6 @@ Write code or pseudocode for three unit tests to test the business logic in the 
 package io.github.username.exam.code;
 import java.util.Calendar;
 
-public class QuotationFileProcessorStub implements QuotationFileProcessor {
-
-    private String fileName;
-    public String getFileName()
-    {
-        System.out.println("Getting file name");
-        return fileName;
-    }
-    public void setFileName(String fileName)
-    {
-        System.out.println("Setting file name: " + fileName);
-        this.fileName = fileName;
-    }
-    public void readTheDataFileAndLoadTheQuotations()
-    {
-        System.out.println("Reading and loading quotations from file");
-    }
-}
 public class CalendarProviderStub implements CalendarProvider {
 
     private int dayOfWeek;
@@ -405,38 +372,35 @@ public class OvertimeHoursProcessorTest {
 
     @Test
     public void testQuotationLoaderWithValidFileOnValidDay() {
-        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
-        fileProcessorStub.setFileName("valid-data-file.data");
+        String fileName = "valid-data-file.data";
 
         CalendarProviderStub calendarStub = new CalendarProviderStub();
         calendarStub.setDayOfWeek(Calendar.MONDAY);
 
-        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
-        assertTrue(loader.loadQuotations());
+        QuotationLoader loader = new QuotationLoader();
+        assertTrue(loader.loadQuotations(fileName, calendarStub));
     }
 
     @Test
     public void testQuotationLoaderWithInvalidFileOnValidDay() {
-        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
-        fileProcessorStub.setFileName("invalid-data-file.invalid");
+        String fileName = "invalid-data-file.invalid";
 
         CalendarProviderStub calendarStub = new CalendarProviderStub();
         calendarStub.setDayOfWeek(Calendar.MONDAY);
 
-        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
-        assertFalse(loader.loadQuotations());
+        QuotationLoader loader = new QuotationLoader();
+        assertFalse(loader.loadQuotations(fileName, calendarStub));
     }
 
     @Test
     public void testQuotationLoaderWithValidFileOnInvalidDay() {
-        QuotationFileProcessorStub fileProcessorStub = new QuotationFileProcessorStub();
-        fileProcessorStub.setFileName("valid-data-file.data");
+        String fileName = "valid-data-file.data";
 
         CalendarProviderStub calendarStub = new CalendarProviderStub();
         calendarStub.setDayOfWeek(Calendar.Sunday);
 
-        QuotationLoader loader = new QuotationLoader(fileProcessorStub, calendarStub);
-        assertFalse(loader.loadQuotations());
+        QuotationLoader loader = new QuotationLoader();
+        assertFalse(loader.loadQuotations(fileName, calendarStub));
     }
 }
 ```
