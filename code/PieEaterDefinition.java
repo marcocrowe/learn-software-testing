@@ -25,6 +25,24 @@ class PieEater implements PieEaterDefinition {
     return pieCount;
   }
 
+
+  public Integer demoReturn(Grid aGrid) {
+    initialise();
+    turn("Right");
+    for (int i = 1; i <= 10; i++) {
+      if (aGrid.pieInSight(this) == true) {
+        eatPie(aGrid);
+      }
+      for (int j = 1; j <= 10; j++) {
+        if (aGrid.clearAhead(this) == true) {
+          walk(aGrid);
+        } else {
+          return pieCount;
+        }
+      }
+    }
+    return pieCount;
+  }
   private int pieCount;
 
   void initialise() {
