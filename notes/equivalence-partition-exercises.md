@@ -3,8 +3,7 @@
 
 - Functional testing is software testing where the system is tested against the functional requirements/specifications.
 - The purpose of functional testing is to assure that the software fulfils the requirements of the stakeholders.
-- Functions (or features) are tested by providing them input
-and examining the output.
+- Functions (or features) are tested by providing them input and examining the output.
   - Eg Add User
 
 - To undertake functional testing you need very good knowledge of what the s/w does and also knowledge on what constitutes valid and invalid

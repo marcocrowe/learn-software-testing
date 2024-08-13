@@ -1,3 +1,4 @@
+
 # Software Testing - SODV06010 - Exam Paper - 2024 - Summer
 
 **Time Allowed**: 2 hours
@@ -75,13 +76,13 @@ public Integer walkAndEatPies(Grid aGrid)
 
 **Figure 1**  
 
-### Question 2. A (11 Marks)
+### Question 2.A (11 Marks)
 
-#### Question 2. A.1
+#### Question 2.A.1
 
 Develop a control flow-graph for the code shown in Figure 1 and determine the complexity.
 
-#### Answer 2. A.1
+#### Answer 2.A.1
 
 The control flow-graph for the code shown in Figure 1 is as follows:
 
@@ -120,27 +121,27 @@ $M = E - N + 2$
 
 where:
 
-* $M$ is the complexity
-* $E$ is the number of edges
-* $N$ is the number of nodes
+- $M$ is the complexity
+- $E$ is the number of edges
+- $N$ is the number of nodes
 
 $M = 13 - 11 + 2 = 4$
 
 $$\boxed{M = 4}$$
 
-#### Question 2. A.2
+#### Question 2.A.2
 
 Suppose software testing has been employed so that TER1 = 0.95, would you recommend further testing and explain your answer.
 
-#### Answer 2. A.2
+#### Answer 2.A.2
 
 Given the testing effectiveness ratio (TER1 = 0.95), which indicates a high level of coverage, further testing may not be necessary. However, it is advisable to consider additional testing to ensure robustness and reliability, especially in critical or complex systems. Further testing can help identify edge cases, boundary conditions, and potential issues that may not have been covered by the initial tests. It is always beneficial to have a comprehensive testing strategy to minimize the risk of undetected defects and ensure the quality of the software product.
 
-### Question 2. B (11 Marks)
+### Question 2.B (11 Marks)
 
 Develop the branch table for the code shown in Figure 1.
 
-### Answer 2. B
+### Answer 2.B
 
 **Lines**  
 
@@ -148,54 +149,54 @@ No need to number `blank lines` , `lines with curly braces` or `else` statements
 
 | #  | Code                                 |
 |----|--------------------------------------|
-| 1  | `initialise();` |
-| 2  | `turn("Right");` |
-| 3  | `for(int i=1; i <= 10; i++)` |
+| 1  | `initialise();`                      |
+| 2  | `turn("Right");`                     |
+| 3  | `for(int i=1; i <= 10; i++)`         |
 | 4  | `if(aGrid.pieInSight(this) == true)` |
-| 5  | `eatPie(aGrid);` |
+| 5  | `eatPie(aGrid);`                     |
 | 6  | `if(aGrid.clearAhead(this) == true)` |
-| 7  | `walk(aGrid);` |
-| 8  | `break;` |
-| 9  | `return pieCount;` |
+| 7  | `walk(aGrid);`                       |
+| 8  | `break;`                             |
+| 9  | `return pieCount;`                   |
 | 10 | **END**                              |
 
 **Branch Table**  
 
-* `From Line` and `To Line` are for reference only. They are not part of the branch table.*
+- `From Line` and `To Line` are for reference only. They are not part of the branch table.*
 
 | Branch No. | From Line # | To Line # | Branch Type        |   | From Line                                     | To Line                              |
 |:-----------|:------------|:----------|:-------------------|---|:----------------------------------------------|:-------------------------------------|
-| 1          | 1           | 2         | Unconditional      |   | `initialise();` | `turn("Right");` |
-| 2          | 2           | 3         | Unconditional      |   | `turn("Right");` | `for(int i=1; i <= 10; i++)` |
+| 1          | 1           | 2         | Unconditional      |   | `initialise();`                               | `turn("Right");`                     |
+| 2          | 2           | 3         | Unconditional      |   | `turn("Right");`                              | `for(int i=1; i <= 10; i++)`         |
 | 3          | 3           | 4         | Conditional Loop   |   | `for(int i=1; i <= 10; i++)` is True          | `if(aGrid.pieInSight(this) == true)` |
-| 4          | 3           | 9         | Conditional Loop   |   | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;` |
-| 5          | 4           | 5         | Conditional Branch |   | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);` |
+| 4          | 3           | 9         | Conditional Loop   |   | `for(int i=1; i <= 10; i++)` is False         | `return pieCount;`                   |
+| 5          | 4           | 5         | Conditional Branch |   | `if(aGrid.pieInSight(this) == true)` is True  | `eatPie(aGrid);`                     |
 | 6          | 4           | 6         | Conditional Branch |   | `if(aGrid.pieInSight(this) == true)` is False | `if(aGrid.clearAhead(this) == true)` |
-| 7          | 5           | 3         | Unconditional      |   | `eatPie(aGrid);` | `for(int i=1; i <= 10; i++)` |
-| 8          | 6           | 7         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);` |
-| 9          | 6           | 8         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is False | `break;` |
-| 10         | 7           | 3         | Unconditional      |   | `walk(aGrid);` | `for(int i=1; i <= 10; i++)` |
-| 11         | 8           | 9         | Unconditional      |   | `break;` | `return pieCount;` |
-| 12         | 9           | 10        | Unconditional      |   | `return pieCount;` | **END**                              |
+| 7          | 5           | 3         | Unconditional      |   | `eatPie(aGrid);`                              | `for(int i=1; i <= 10; i++)`         |
+| 8          | 6           | 7         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is True  | `walk(aGrid);`                       |
+| 9          | 6           | 8         | Conditional Branch |   | `if(aGrid.clearAhead(this) == true)` is False | `break;`                             |
+| 10         | 7           | 3         | Unconditional      |   | `walk(aGrid);`                                | `for(int i=1; i <= 10; i++)`         |
+| 11         | 8           | 9         | Unconditional      |   | `break;`                                      | `return pieCount;`                   |
+| 12         | 9           | 10        | Unconditional      |   | `return pieCount;`                            | **END**                              |
 
-### Question 2. C (11 Marks)
+### Question 2.C (11 Marks)
 
 Develop the block table for the code shown in Figure 1.
 
-### Answer 2. C
+### Answer 2.C
 
-Using my **Lines** table from **Answer 2. B**:
+Using my **Lines** table from **Answer 2.B**:
 
 *From `Start Line Code` and `End Line Code` are for reference only. They are not part of the block table.*
 
 | Block Number | Start Line | End Line |   | Start Line Code              | End Line Code    |        |
 |--------------|------------|----------|---|------------------------------|------------------|--------|
-| 1            | 1          | 2        |   | `initialise();` | `turn("Right");` |        |
-| 2            | 3          | 8        |   | `for(int i=1; i <= 10; i++)` | `break;` | Note 1 |
-| 3            | 9          | 10       |   | `return pieCount;` | **END**          |        |
+| 1            | 1          | 2        |   | `initialise();`              | `turn("Right");` |        |
+| 2            | 3          | 8        |   | `for(int i=1; i <= 10; i++)` | `break;`         | Note 1 |
+| 3            | 9          | 10       |   | `return pieCount;`           | **END**          |        |
 |              |            |          |   |                              |                  |        |
-| 4            | 5          | 5        |   | `eatPie(aGrid);` | `eatPie(aGrid);` | Note 2 |
-| 5            | 7          | 7        |   | `walk(aGrid);` | `walk(aGrid);` | Note 2 |
+| 4            | 5          | 5        |   | `eatPie(aGrid);`             | `eatPie(aGrid);` | Note 2 |
+| 5            | 7          | 7        |   | `walk(aGrid);`               | `walk(aGrid);`   | Note 2 |
 
 **Notes**:
 
@@ -249,11 +250,11 @@ public class QuotationLoader {
 
 **Figure 2**  
 
-## Question 3. A (12 Marks)
+## Question 3.A (12 Marks)
 
 Refactor the QuotationLoader to make it testable by introducing a layer of indirection to avoid the dependency i.e. write code or pseudocode. Your refactoring should include adding an interface which will allow use of a configurable stub in the unit tests.
 
-### Answer 3. A
+### Answer 3.A
 
 ```java
 package io.github.username.exam.code;
@@ -347,6 +348,7 @@ public class QuotationLoader {
         return true;
     }
 }
+```
 
 **Before and After Refactoring**  
 
@@ -439,11 +441,11 @@ public class OvertimeHoursProcessorTest {
 }
 ```
 
-## Question 3. C (8 Marks)
+## Question 3.C (8 Marks)
 
 Explain what is meant in unit testing by saying that you configured the fake to make happy noises for the test.
 
-### Answer 3. C
+### Answer 3.C
 
 In unit testing, configuring the fake to make happy noises means setting up the fake object (stub or mock) to return positive or successful responses during the test. This involves configuring the fake object to simulate the desired behavior or outcome that will satisfy the test conditions. By making the fake object produce happy noises, we ensure that the test scenario is executed successfully and the test case passes.
 
@@ -472,11 +474,11 @@ public class CalendarProviderMiserableStub implements CalendarProvider {
 
 ## Question 4 [Total 33 Marks]
 
-### Question 4. A (10 Marks)
+### Question 4.A (10 Marks)
 
 Explain why consideration of Boundary Value Analysis is useful when determining tests cases for the Equivalence Classes/Partitions you identify. Use a simple example to illustrate your answer.
 
-### Answer 4. A
+### Answer 4.A
 
 Boundary Value Analysis (BVA) is a crucial technique in software testing that focuses on the values at the boundaries of equivalence classes or partitions. This method is particularly useful because defects are more likely to occur at the edges of input ranges rather than in the middle. By testing these boundary values, we can more effectively identify potential issues in the software.
 
@@ -514,9 +516,9 @@ Consider a software application that accepts an integer input between 1 and 100 
 **Additional Considerations:**
 While BVA primarily focuses on boundary values, it can also be useful to consider other types of test cases such as:
 
-* **Negative Values:** Testing with negative values (e.g., -1) can help ensure that the application correctly handles invalid inputs.
-* **Even/Odd Values:** Testing with even and odd values within the valid range (e.g., 2, 3, 98, 99) can help identify any issues related to specific types of inputs.
-* **Non-Integer Values:** Testing with non-integer values (e.g., 1.5) can help verify the application's handling of non-integer inputs.
+- **Negative Values:** Testing with negative values (e.g., -1) can help ensure that the application correctly handles invalid inputs.
+- **Even/Odd Values:** Testing with even and odd values within the valid range (e.g., 2, 3, 98, 99) can help identify any issues related to specific types of inputs.
+- **Non-Integer Values:** Testing with non-integer values (e.g., 1.5) can help verify the application's handling of non-integer inputs.
 
 By focusing on these boundary values and additional considerations, we can ensure that the application correctly handles the edge cases, thereby improving the reliability and robustness of the software.
 
@@ -526,7 +528,7 @@ A shopping website offers different discounts depending upon each transaction ma
 
 Derive the equivalence classes and determine black box test cases based on these and utilise boundary value analysis.
 
-### Answer 4. B
+### Answer 4.B
 
 Identifying relevant terms from the question for Equivalence Partitioning and Boundary Value Analysis:
 
@@ -634,14 +636,14 @@ Filename: 2024-software-testing-sodv06010-solution.md
 
 ### Programmes
 
-| Code           | Programme                                   |
-|----------------|---------------------------------------------|
-| LC\_KMWCM\_KMY | Bsc. (Honours) Mobile and Web Computing     |
-| LC\_KSOFM\_KMY | Bsc. (Honours) Software Development         |
-| LC\_KCPTM\_JMY | Bsc. Computing                              |
-| LC\_KMWCM\_JMY | Bsc. Mobile and Web Computing               |
-| LC\_KISYM\_JMY | Bsc. Internet Systems Development           |
-| LC\_KISYM\_KMY | Bsc. (Honours) Internet Systems Development |
+| Code         | Programme                                   |
+|--------------|---------------------------------------------|
+| LC_KMWCM_KMY | Bsc. (Honours) Mobile and Web Computing     |
+| LC_KSOFM_KMY | Bsc. (Honours) Software Development         |
+| LC_KCPTM_JMY | Bsc. Computing                              |
+| LC_KMWCM_JMY | Bsc. Mobile and Web Computing               |
+| LC_KISYM_JMY | Bsc. Internet Systems Development           |
+| LC_KISYM_KMY | Bsc. (Honours) Internet Systems Development |
 
 ### Examiners
 

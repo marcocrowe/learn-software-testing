@@ -158,14 +158,14 @@ Filename: 2024-software-testing-sodv06010-paper.md
 
 ### Programmes
 
-| Code           | Programme                                          |
-|----------------|----------------------------------------------------|
-| LC\_KMWCM\_KMY | Bsc. (Honours) Mobile and Web Computing            |
-| LC\_KSOFM\_KMY | Bsc. (Honours) Software Development                |
-| LC\_KCPTM\_JMY | Bsc. Computing                                     |
-| LC\_KMWCM\_JMY | Bsc. Mobile and Web Computing                      |
-| LC\_KISYM\_JMY | Bsc. Internet Systems Development                  |
-| LC\_KISYM\_KMY | Bsc. (Honours) Internet Systems Development        |
+| Code         | Programme                                   |
+|--------------|---------------------------------------------|
+| LC_KMWCM_KMY | Bsc. (Honours) Mobile and Web Computing     |
+| LC_KSOFM_KMY | Bsc. (Honours) Software Development         |
+| LC_KCPTM_JMY | Bsc. Computing                              |
+| LC_KMWCM_JMY | Bsc. Mobile and Web Computing               |
+| LC_KISYM_JMY | Bsc. Internet Systems Development           |
+| LC_KISYM_KMY | Bsc. (Honours) Internet Systems Development |
 
 ### Examiners
 

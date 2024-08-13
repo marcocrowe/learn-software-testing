@@ -1,21 +1,20 @@
-package CrossCutting:
+// package io.github.marcocrowe.crosscutting;
 
-import java. io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import javax.swing.filechooser.FileSystemView;
 
 public class LogFileAnalyser
 {
-    private Boolean lastLogFileStatus=null;
+    private Boolean lastLogFileStatus = null;
     private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\Logs\\";
 
-    public Boolean AnalyseLogfile (String fileName)
+    public Boolean AnalyseLogfile(String fileName)
     {
         // First piece of business logic is to check that the Logfile has a valid extension. Unit tests need to test this.
-        if (! fileName. endsWith (". log"))
-            return false; //LogFile extenaion 1a invalid
+        if (!fileName.endsWith(".log"))
+            return false; //LogFile extension 1a invalid
 
         // Next open the Log file and rend the log status
         String readMeText;
