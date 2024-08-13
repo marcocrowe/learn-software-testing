@@ -71,27 +71,27 @@ Answer:
 
 **Equivalence classes:**
 
-| Equiv classes | `cover` | `test-name`                | `test-dependance`              | Criteria                                          | Valid/Invalid |
-|---------------|---------|:---------------------------|--------------------------------|---------------------------------------------------|--------------:|
-| E1            | x       | `isDayInt`                 |                                | `dayInput is int day`                             |         Valid |
-| *E2*          | x       | `!isDayInt`                |                                | `dayInput is not int day`                         |       Invalid |
-| E3            | x       | `isDayInRange`             | $E3\implies E1$                | `day >= 1 && day <= 31`                           |         Valid |
-| *E4*          | x       | `isDayOutsideLowerBound`   | $E4\implies E1$                | `day < 1`                                         |       Invalid |
-| *E5*          | x       | `isDayOutsideUpperBound`   | $E5\implies E1$                | `day > 31`                                        |       Invalid |
-| E6            | x       | `isMonthInt`               |                                | `monthInput is int month`                         |         Valid |
-| *E7*          | x       | `!isMonthInt`              |                                | `monthInput is not int month`                     |       Invalid |
-| E8            | x       | `isMonthInRange`           | $E8\implies E6$                | `month >= 1 && month <= 12`                       |         Valid |
-| *E9*          | x       | `isMonthOutsideLowerBound` | $E9\implies E6$                | `month < 1`                                       |       Invalid |
-| *E10*         | x       | `isMonthOutsideUpperBound` | $E10\implies E6$               | `month > 12`                                      |       Invalid |
-| E11           | x       | `isYearInt`                |                                | `yearInput is int year`                           |         Valid |
-| *E12*         | x       | `!isYearInt`               |                                | `yearInput is not int year`                       |       Invalid |
-| E13           | x       | `isYearInRange`            | $E13\implies E11$              | `year >= 1900 && year <= 2025`                    |         Valid |
-| *E14*         | x       | `isYearOutsideLowerBound`  | $E14\implies E11$              | `year < 1900`                                     |       Invalid |
-| *E15*         | x       | `isYearOutsideUpperBound`  | $E15\implies E11$              | `year > 2025`                                     |       Invalid |
-| E16           | x       | `isDateValid`              | $E16 \implies E3 && E8 && E13$ | `isDayInRange && isMonthInRange && isYearInRange` |         Valid |
-| *E17*         |         | `!isDayInRange`            |                                | `!isDayInRange`                                   |       Invalid |
-| *E18*         |         | `!isMonthInRange`          |                                | `!isMonthInRange`                                 |       Invalid |
-| *E19*         |         | `!isYearInRange`           |                                | `!isYearInRange`                                  |       Invalid |
+| Equiv classes | `cover` | `test-name`                | `test-dependance`                  | Criteria                                          | Valid/Invalid |
+|---------------|---------|:---------------------------|------------------------------------|---------------------------------------------------|--------------:|
+| E1            | x       | `isDayInt`                 |                                    | `dayInput is int day`                             |         Valid |
+| *E2*          | x       | `!isDayInt`                |                                    | `dayInput is not int day`                         |       Invalid |
+| E3            | x       | `isDayInRange`             | $E3\implies E1$                    | `day >= 1 && day <= 31`                           |         Valid |
+| *E4*          | x       | `isDayOutsideLowerBound`   | $E4\implies E1$                    | `day < 1`                                         |       Invalid |
+| *E5*          | x       | `isDayOutsideUpperBound`   | $E5\implies E1$                    | `day > 31`                                        |       Invalid |
+| E6            | x       | `isMonthInt`               |                                    | `monthInput is int month`                         |         Valid |
+| *E7*          | x       | `!isMonthInt`              |                                    | `monthInput is not int month`                     |       Invalid |
+| E8            | x       | `isMonthInRange`           | $E8\implies E6$                    | `month >= 1 && month <= 12`                       |         Valid |
+| *E9*          | x       | `isMonthOutsideLowerBound` | $E9\implies E6$                    | `month < 1`                                       |       Invalid |
+| *E10*         | x       | `isMonthOutsideUpperBound` | $E10\implies E6$                   | `month > 12`                                      |       Invalid |
+| E11           | x       | `isYearInt`                |                                    | `yearInput is int year`                           |         Valid |
+| *E12*         | x       | `!isYearInt`               |                                    | `yearInput is not int year`                       |       Invalid |
+| E13           | x       | `isYearInRange`            | $E13\implies E11$                  | `year >= 1900 && year <= 2025`                    |         Valid |
+| *E14*         | x       | `isYearOutsideLowerBound`  | $E14\implies E11$                  | `year < 1900`                                     |       Invalid |
+| *E15*         | x       | `isYearOutsideUpperBound`  | $E15\implies E11$                  | `year > 2025`                                     |       Invalid |
+| E16           | x       | `isDateValid`              | $E16 \implies E3 \And E8 \And E13$ | `isDayInRange && isMonthInRange && isYearInRange` |         Valid |
+| *E17*         |         | `!isDayInRange`            |                                    | `!isDayInRange`                                   |       Invalid |
+| *E18*         |         | `!isMonthInRange`          |                                    | `!isMonthInRange`                                 |       Invalid |
+| *E19*         |         | `!isYearInRange`           |                                    | `!isYearInRange`                                  |       Invalid |
 
 Note: Why not E99 `year < 1900 || year > 2025` is `Invalid`? Because the two conditions are mutually exclusive. If one is true, the other is false. Therefore, when passing in an input for the test, not all branches will be covered.  Therefore, it is better to have two separate equivalence classes for complete TER2 (Branch Coverage).
 
