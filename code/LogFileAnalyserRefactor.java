@@ -5,11 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import javax.swing.filechooser.FileSystemView;
 
-public class LogFileAnalyser
+public class LogFileAnalyserRefactor
 {
     private final LogFileManager fileManager;
 
-    public LogFileAnalyser(LogFileManager fileManager)
+    public LogFileAnalyserRefactor(LogFileManager fileManager)
     {
         this.fileManager = fileManager;
     }
